@@ -266,7 +266,7 @@ def get_total_exemption_amount(declarations):
 		if category_max_amount and exemptions.get(d.exemption_category).total_exemption_amount > category_max_amount:
 			exemptions.get(d.exemption_category).total_exemption_amount = category_max_amount
 
-	total_exemption_amount = sum([flt(d.total_exemption_amount) for d in exemptions.values()])
+	total_exemption_amount = sum(flt(d.total_exemption_amount) for d in exemptions.values())
 	return total_exemption_amount
 
 def get_leave_period(from_date, to_date, company):

@@ -82,9 +82,9 @@ def get_columns():
 def get_data(filters):
 	data = []
 	staffing_plan_details = get_staffing_plan(filters)
-	staffing_plan_list  = list(set([details["name"] for details in staffing_plan_details]))
-	sp_jo_map , jo_list = get_job_opening(staffing_plan_list)
-	jo_ja_map , ja_list = get_job_applicant(jo_list)
+	staffing_plan_list  = list(set(details["name"] for details in staffing_plan_details))
+	sp_jo_map, jo_list = get_job_opening(staffing_plan_list)
+	jo_ja_map, ja_list = get_job_applicant(jo_list)
 	ja_joff_map = get_job_offer(ja_list)
 
 	for sp in sp_jo_map.keys():

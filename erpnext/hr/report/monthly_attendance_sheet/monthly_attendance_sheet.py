@@ -67,8 +67,8 @@ def execute(filters=None):
 	if filters.group_by:
 		emp_att_map = {}
 		for parameter in group_by_parameters:
-			emp_map_set = set([key for key in emp_map[parameter].keys()])
-			att_map_set = set([key for key in att_map.keys()])
+			emp_map_set = set(key for key in emp_map[parameter].keys())
+			att_map_set = set(key for key in att_map.keys())
 			if (att_map_set & emp_map_set):
 				parameter_row = ["<b>"+ parameter + "</b>"] + ['' for day in range(filters["total_days_in_month"] + 2)]
 				data.append(parameter_row)

@@ -30,7 +30,7 @@ def make_expense_claim(docname):
 		frappe.throw(_("Expense Claim {0} already exists for the Vehicle Log").format(expense_claim))
 
 	vehicle_log = frappe.get_doc("Vehicle Log", docname)
-	service_expense = sum([flt(d.expense_amount) for d in vehicle_log.service_detail])
+	service_expense = sum(flt(d.expense_amount) for d in vehicle_log.service_detail)
 
 	claim_amount = service_expense + (flt(vehicle_log.price) * flt(vehicle_log.fuel_qty) or 1)
 	if not claim_amount:

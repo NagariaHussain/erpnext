@@ -92,7 +92,7 @@ class TestLeaveApplication(unittest.TestCase):
 		self.assertEqual(len(attendance), 3)
 
 		# all on leave
-		self.assertTrue(all([d.status == 'On Leave' for d in attendance]))
+		self.assertTrue(all((d.status == 'On Leave') for d in attendance))
 
 		# dates
 		dates = [d.attendance_date for d in attendance]

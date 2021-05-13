@@ -52,6 +52,6 @@ def get_data(filters):
 	total = len(daily_summary_emails)
 	for user in get_user_emails_from_group(filters.group):
 		user_name = frappe.get_value('User', user, 'full_name')
-		count = len([d for d in replies if d.sender == user])
+		count = len(d for d in replies if d.sender == user)
 		data.append([user_name, count, total])
 	return data
